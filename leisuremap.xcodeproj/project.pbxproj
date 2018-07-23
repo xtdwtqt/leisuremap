@@ -14,6 +14,8 @@
 		ADFA21F42105D80800180D43 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADFA21F22105D80800180D43 /* LaunchScreen.storyboard */; };
 		ADFA21FF2105D80800180D43 /* leisuremapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFA21FE2105D80800180D43 /* leisuremapTests.swift */; };
 		ADFA220A2105D80800180D43 /* leisuremapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFA22092105D80800180D43 /* leisuremapUITests.swift */; };
+		ADFA22192105DB0500180D43 /* splashviwecontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFA22182105DB0500180D43 /* splashviwecontroller.swift */; };
+		ADFA221C2105DC0F00180D43 /* loginviewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFA221B2105DC0F00180D43 /* loginviewcontroller.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,9 @@
 		ADFA22052105D80800180D43 /* leisuremapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = leisuremapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADFA22092105D80800180D43 /* leisuremapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = leisuremapUITests.swift; sourceTree = "<group>"; };
 		ADFA220B2105D80800180D43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ADFA22172105D95E00180D43 /* leisuremap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = leisuremap.entitlements; sourceTree = "<group>"; };
+		ADFA22182105DB0500180D43 /* splashviwecontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = splashviwecontroller.swift; sourceTree = "<group>"; };
+		ADFA221B2105DC0F00180D43 /* loginviewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginviewcontroller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +102,15 @@
 		ADFA21E82105D80400180D43 /* leisuremap */ = {
 			isa = PBXGroup;
 			children = (
+				ADFA221A2105DBC500180D43 /* loginflow */,
+				ADFA22172105D95E00180D43 /* leisuremap.entitlements */,
 				ADFA21E92105D80400180D43 /* AppDelegate.swift */,
 				ADFA21EB2105D80400180D43 /* ViewController.swift */,
 				ADFA21ED2105D80400180D43 /* Main.storyboard */,
 				ADFA21F02105D80800180D43 /* Assets.xcassets */,
 				ADFA21F22105D80800180D43 /* LaunchScreen.storyboard */,
 				ADFA21F52105D80800180D43 /* Info.plist */,
+				ADFA22182105DB0500180D43 /* splashviwecontroller.swift */,
 			);
 			path = leisuremap;
 			sourceTree = "<group>";
@@ -123,6 +131,14 @@
 				ADFA220B2105D80800180D43 /* Info.plist */,
 			);
 			path = leisuremapUITests;
+			sourceTree = "<group>";
+		};
+		ADFA221A2105DBC500180D43 /* loginflow */ = {
+			isa = PBXGroup;
+			children = (
+				ADFA221B2105DC0F00180D43 /* loginviewcontroller.swift */,
+			);
+			path = loginflow;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +209,11 @@
 				TargetAttributes = {
 					ADFA21E52105D80400180D43 = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					ADFA21F92105D80800180D43 = {
 						CreatedOnToolsVersion = 10.0;
@@ -256,8 +277,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADFA221C2105DC0F00180D43 /* loginviewcontroller.swift in Sources */,
 				ADFA21EC2105D80400180D43 /* ViewController.swift in Sources */,
 				ADFA21EA2105D80400180D43 /* AppDelegate.swift in Sources */,
+				ADFA22192105DB0500180D43 /* splashviwecontroller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,7 +455,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = leisuremap/leisuremap.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = leisuremap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -449,7 +474,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = leisuremap/leisuremap.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = leisuremap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
