@@ -11,6 +11,8 @@
 		AD21462521085AE30062F00C /* masterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD21462421085AE30062F00C /* masterViewController.swift */; };
 		AD21462721085AF80062F00C /* mapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD21462621085AF80062F00C /* mapViewController.swift */; };
 		AD21462921085B0E0062F00C /* noteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD21462821085B0E0062F00C /* noteViewController.swift */; };
+		AD21462B21086E3B0062F00C /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD21462A21086E3B0062F00C /* loginViewController.swift */; };
+		AD21462D21086E730062F00C /* splashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD21462C21086E730062F00C /* splashViewController.swift */; };
 		ADFA21EA2105D80400180D43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFA21E92105D80400180D43 /* AppDelegate.swift */; };
 		ADFA21EC2105D80400180D43 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFA21EB2105D80400180D43 /* ViewController.swift */; };
 		ADFA21EF2105D80400180D43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADFA21ED2105D80400180D43 /* Main.storyboard */; };
@@ -18,8 +20,6 @@
 		ADFA21F42105D80800180D43 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADFA21F22105D80800180D43 /* LaunchScreen.storyboard */; };
 		ADFA21FF2105D80800180D43 /* leisuremapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFA21FE2105D80800180D43 /* leisuremapTests.swift */; };
 		ADFA220A2105D80800180D43 /* leisuremapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFA22092105D80800180D43 /* leisuremapUITests.swift */; };
-		ADFA22192105DB0500180D43 /* splashviwecontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFA22182105DB0500180D43 /* splashviwecontroller.swift */; };
-		ADFA221C2105DC0F00180D43 /* loginviewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFA221B2105DC0F00180D43 /* loginviewcontroller.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +44,8 @@
 		AD21462421085AE30062F00C /* masterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = masterViewController.swift; sourceTree = "<group>"; };
 		AD21462621085AF80062F00C /* mapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapViewController.swift; sourceTree = "<group>"; };
 		AD21462821085B0E0062F00C /* noteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = noteViewController.swift; sourceTree = "<group>"; };
+		AD21462A21086E3B0062F00C /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
+		AD21462C21086E730062F00C /* splashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = splashViewController.swift; sourceTree = "<group>"; };
 		ADFA21E62105D80400180D43 /* leisuremap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = leisuremap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADFA21E92105D80400180D43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADFA21EB2105D80400180D43 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,8 +60,6 @@
 		ADFA22092105D80800180D43 /* leisuremapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = leisuremapUITests.swift; sourceTree = "<group>"; };
 		ADFA220B2105D80800180D43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADFA22172105D95E00180D43 /* leisuremap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = leisuremap.entitlements; sourceTree = "<group>"; };
-		ADFA22182105DB0500180D43 /* splashviwecontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = splashviwecontroller.swift; sourceTree = "<group>"; };
-		ADFA221B2105DC0F00180D43 /* loginviewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginviewcontroller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,7 +146,6 @@
 				ADFA21F02105D80800180D43 /* Assets.xcassets */,
 				ADFA21F22105D80800180D43 /* LaunchScreen.storyboard */,
 				ADFA21F52105D80800180D43 /* Info.plist */,
-				ADFA22182105DB0500180D43 /* splashviwecontroller.swift */,
 			);
 			path = leisuremap;
 			sourceTree = "<group>";
@@ -172,7 +171,8 @@
 		ADFA221A2105DBC500180D43 /* loginflow */ = {
 			isa = PBXGroup;
 			children = (
-				ADFA221B2105DC0F00180D43 /* loginviewcontroller.swift */,
+				AD21462A21086E3B0062F00C /* loginViewController.swift */,
+				AD21462C21086E730062F00C /* splashViewController.swift */,
 			);
 			path = loginflow;
 			sourceTree = "<group>";
@@ -314,13 +314,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD21462921085B0E0062F00C /* noteViewController.swift in Sources */,
-				ADFA221C2105DC0F00180D43 /* loginviewcontroller.swift in Sources */,
 				AD21462521085AE30062F00C /* masterViewController.swift in Sources */,
 				ADFA21EC2105D80400180D43 /* ViewController.swift in Sources */,
 				ADFA21EA2105D80400180D43 /* AppDelegate.swift in Sources */,
-				ADFA22192105DB0500180D43 /* splashviwecontroller.swift in Sources */,
+				AD21462B21086E3B0062F00C /* loginViewController.swift in Sources */,
 				AD21462321085A860062F00C /* DetailViewController.swift in Sources */,
 				AD21462721085AF80062F00C /* mapViewController.swift in Sources */,
+				AD21462D21086E730062F00C /* splashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
