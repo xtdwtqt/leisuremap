@@ -19,12 +19,49 @@ class loginViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
     }
     
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//
-//
-//        
-//
-//    }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
+
+        //
+        let accept = "abcdeABCDE"
+        
+        let cs=NSCharacterSet(charactersIn: accept).inverted
+        //['a','b','c',]
+        let filtered = string.components(separatedBy: cs).joined(separator: "")
+        
+        //["a","b","c"]
+        
+        if(string != filtered){
+            
+            return false
+        }
+        
+        
+        
+        
+        
+        // max length
+        var maxlength:Int=0
+        
+        if textField.tag==1{
+            maxlength = 4
+            
+        }
+        if textField.tag==2{
+            maxlength = 5
+            
+        }
+        
+        let currentstring : NSString=textField.text! as NSString
+        
+        let newstring:NSString=currentstring.replacingCharacters(in: range, with: string)as NSString
+        
+        return newstring.length<=maxlength
+        
+        
+        
+
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
