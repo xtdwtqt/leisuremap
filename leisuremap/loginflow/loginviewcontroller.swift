@@ -8,15 +8,42 @@
 
 import UIKit
 
-class loginViewController: UIViewController, UITextFieldDelegate {
+class loginViewController: UIViewController, UITextFieldDelegate ,AsyncResponseDelegate{
 
     @IBOutlet weak var txtaccount: UITextField!
     @IBOutlet weak var txtpassword: UITextField!
     @IBOutlet weak var btmlogin: UIButton!
+    
+    var requestWorker:AsyncRequestWorker?
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        //http://score.azurewebsites.net/api/login/acc/pwd
+        
+        requestWorker=AsyncRequestWorker()
+        
+        requestWorker?.responseDelegate=self
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("viewWillAppear")
+    }
+    
+    
+    @IBAction func btnloginclicked(_ sender: Any) {
+        
+        let  account=txtaccount.text!
+        let  password=txtpassword.text!
+        
+        
+        
+        let from = "https://score.azurewebsites.net/api/login/\(account)/\(password)"
+        
+        self.requestWorker?.getResponse(from: from, tag: 1)
+        
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -73,6 +100,18 @@ class loginViewController: UIViewController, UITextFieldDelegate {
             textField.resignFirstResponder()
         }
         return true
+    }
+    // MARK:AsyncResponseDelegate
+    
+    
+    func receivedResponse(_ sender: AsyncRequestWorker, responseString responsetring: String, tag: Int) {
+        print(responsetring)
+        
+//        defaults.synchronize()
+//        
+//        DispatchQueue.main.async {
+//            self.performSegue(withIdentifier: "movetologinviewcontroller", sender: self)
+//        }
     }
     
     /*
