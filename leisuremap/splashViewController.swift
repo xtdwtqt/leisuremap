@@ -41,27 +41,18 @@ class splashViewController: UIViewController {
         
         let task=session.dataTask(with: request, completionHandler: {(data,response,error)in
             
-            if( nil == error){
+            let httpresponse = response as! HTTPURLResponse
+            let statusCode = httpresponse.statusCode
+            
+            
+            if(200 == statusCode){
+                let datastring=NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
                 
-                let httpresponse = response as! HTTPURLResponse
-                let statusCode = httpresponse.statusCode
-                
-                
-                if(200 == statusCode){
-                    let datastring=NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-                    
-                    let responsestring=String(datastring!)
-                    print(responsestring)
-                }
+                let responsestring=String(datastring!)
+                print(responsestring)
+           
                 
             }
-            else{
-                print(error)
-            }
-            
-            
-            
-            
             
         })
         task.resume()
