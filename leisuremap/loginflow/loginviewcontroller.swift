@@ -10,21 +10,16 @@ import UIKit
 import SwiftyJSON
 
 class loginViewController: UIViewController,UITextFieldDelegate, AsyncResponseDelegate, fileworkerdelegate{
-    func fileworkwritecompleted(_ sender: fileworker, filename: String, tag: Int) {
-        
-    }
     
-    func fileworkreadcompleted(_ sender: fileworker, filename: String, tag: Int) {
-        
-    }
     
-
     @IBOutlet weak var txtaccount: UITextField!
     @IBOutlet weak var txtpassword: UITextField!
     @IBOutlet weak var btmlogin: UIButton!
     
     var requestWorker:AsyncRequestWorker?
-    var fileworkerdelegate:fileworkerdelegate?
+    var Fileworker:fileworker?
+    let storefilename : String = "store.json"
+
     
     
 
@@ -33,10 +28,12 @@ class loginViewController: UIViewController,UITextFieldDelegate, AsyncResponseDe
         //http://score.azurewebsites.net/api/login/acc/pwd
         
         requestWorker=AsyncRequestWorker()
-        
         requestWorker?.responseDelegate = self
-
-        // Do any additional setup after loading the view.
+        
+       Fileworker = fileworker()
+        
+        Fileworker?.fileworkerdelegate = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -124,7 +121,7 @@ class loginViewController: UIViewController,UITextFieldDelegate, AsyncResponseDe
         }
         return true
     }
-    // MARK:AsyncResponseDelegate
+    // MARK: - AsyncResponseDelegate
     
     
     func receivedResponse(_ sender: AsyncRequestWorker, responseString responsetring: String, tag: Int) {
@@ -141,14 +138,27 @@ class loginViewController: UIViewController,UITextFieldDelegate, AsyncResponseDe
                     
                     let json = try JSON(data: dataFromString)
                     
-                    for (index,subJson):(String, JSON) in json {
+                    let sqliteContext = SQLiteWorker()
+                    sqliteContext.createDatabase()
+                    sqliteContext.clearAll()
+                    
+                    
+                    for (_,subJson):(String, JSON) in json {
                         
-                        let index : Int = subJson["index"].intValue
+//                        let index : Int = subJson["index"].intValue
                         let name : String = subJson["name"].stringValue
                         let imagePath : String = subJson["imagePath"].stringValue
-                        print("\(index ):\(name)")
+//                        print("\(index ):\(name)")
+                        
+                        sqliteContext.insertData(_name: name , _imagepath: imagePath)
+                       // sqliteContext.insertData(_name: name, _imagepath:imagePath)
 
                     }
+                    
+                    let categories = sqliteContext.readData()
+                    
+                    print(categories)
+                    
                 }
             }catch{
                 print(error)
@@ -161,29 +171,35 @@ class loginViewController: UIViewController,UITextFieldDelegate, AsyncResponseDe
             //store
             //print("\(tag):\(responsetring)")
             //{"serviceIndex":0,"name":"Cafe00","location":{"address":"","latitude":0.0,"longitude":0.0},"index":0,"imagePath":""}
-            do{
-                if let dataFromString = responsetring.data(using: .utf8, allowLossyConversion: false) {
-                    
-                    let json = try JSON(data: dataFromString)
-                    
-                    for (index,subJson):(String, JSON) in json {
-                        let serviceIndex: Int = subJson["serviceIndex"].intValue
-                        let name : String = subJson["name"].stringValue
-                        let index : Int = subJson["index"].intValue
-                        let imagePath : String=subJson["imagePath"].stringValue
-                        let location : JSON = subJson["location"]
-                        let latitude : Double=location["latitude"].doubleValue
-                        let longitude : Double=location["longitude"].doubleValue
-                      
-                        print("\(index ):\(name):longitude:\(latitude)")
-                        
-                    }
-                }
-            }catch{
-                print(error)
-            }
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "movetodetailviewcontroller", sender: self)            }
+//            do{
+//                if let dataFromString = responsetring.data(using: .utf8, allowLossyConversion: false) {
+//
+//                    let json = try JSON(data: dataFromString)
+//
+//                    for (index,subJson):(String, JSON) in json {
+//                        let serviceIndex: Int = subJson["serviceIndex"].intValue
+//                        let name : String = subJson["name"].stringValue
+//                        let index : Int = subJson["index"].intValue
+//                        let imagePath : String=subJson["imagePath"].stringValue
+//                        let location : JSON = subJson["location"]
+//                        let latitude : Double=location["latitude"].doubleValue
+//                        let longitude : Double=location["longitude"].doubleValue
+//
+//                        print("\(index ):\(name):longitude:\(latitude)")
+//
+//                    }
+//                }
+//            }catch{
+//                print(error)
+//            }
+            
+            self.Fileworker?.writetofile(content: responsetring, filename: storefilename, tag: 1)
+            
+            
+//            DispatchQueue.main.async {
+//                self.performSegue(withIdentifier: "movetodetailviewcontroller", sender: self)            }
+            break
+            
         default:
             break
         }
@@ -193,6 +209,18 @@ class loginViewController: UIViewController,UITextFieldDelegate, AsyncResponseDe
 //        DispatchQueue.main.async {
 //            self.performSegue(withIdentifier: "movetologinviewcontroller", sender: self)
 //        }
+    }
+    //MARK: - fileworkerdelegate
+    func fileworkwritecompleted(_ sender: fileworker, filename: String, tag: Int) {
+        
+        print(filename)
+        
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "movetodetailviewcontroller", sender: self)            }
+    }
+    
+    func fileworkreadcompleted(_ sender: fileworker, filename: String, tag: Int) {
+        
     }
     
     /*
