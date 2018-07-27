@@ -8,10 +8,10 @@
 
 import Foundation
 
-class servvicecategory{
+class ServiceCategory{
     
     var Name : String?
-    var ImagePah : String?
+    var ImagePath : String?
     var Index: Int = 0
     
     
