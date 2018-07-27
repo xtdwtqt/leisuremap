@@ -24,7 +24,7 @@ class fileworker {
             
             do{
                 try content.write(to: fileURL, atomically: false, encoding: .utf8)
-                self.fileworkerdelegate?.fileworkreadcompleted(self, filename: fileURL.absoluteString, tag: tag)
+                self.fileworkerdelegate?.fileworkwritecompleted(self, filename: fileURL.absoluteString, tag: tag)
         
             }
             catch{ print(error)}

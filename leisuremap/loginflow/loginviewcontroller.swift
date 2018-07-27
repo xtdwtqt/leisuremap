@@ -22,6 +22,7 @@ class loginViewController: UIViewController,UITextFieldDelegate, AsyncResponseDe
 
     
     
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,9 +31,11 @@ class loginViewController: UIViewController,UITextFieldDelegate, AsyncResponseDe
         requestWorker=AsyncRequestWorker()
         requestWorker?.responseDelegate = self
         
-       Fileworker = fileworker()
-        
+       
+        Fileworker = fileworker()
         Fileworker?.fileworkerdelegate = self
+        
+        let content = self.Fileworker?.readfromfile(filename: storefilename, tag: 1)
         
     }
     
@@ -60,6 +63,7 @@ class loginViewController: UIViewController,UITextFieldDelegate, AsyncResponseDe
         let from = "https://score.azurewebsites.net/api/servicecategory"
         self.requestWorker?.getResponse(from: from, tag: 2)
     }
+    
     func    readstore(){
         let from = "https://score.azurewebsites.net/api/store"
         self.requestWorker?.getResponse(from: from, tag: 3)
@@ -68,8 +72,6 @@ class loginViewController: UIViewController,UITextFieldDelegate, AsyncResponseDe
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 
-
-        //
         let accept = "abcdeABCDE"
         
         let cs=NSCharacterSet(charactersIn: accept).inverted
@@ -82,9 +84,6 @@ class loginViewController: UIViewController,UITextFieldDelegate, AsyncResponseDe
             
             return false
         }
-        
-        
-        
         
         
         // max length
@@ -217,6 +216,7 @@ class loginViewController: UIViewController,UITextFieldDelegate, AsyncResponseDe
         
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "movetodetailviewcontroller", sender: self)            }
+        
     }
     
     func fileworkreadcompleted(_ sender: fileworker, filename: String, tag: Int) {
