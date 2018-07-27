@@ -7,14 +7,26 @@
 //
 
 import UIKit
+import SwiftyJSON
 
-class loginViewController: UIViewController, UITextFieldDelegate ,AsyncResponseDelegate{
+class loginViewController: UIViewController,UITextFieldDelegate, AsyncResponseDelegate, fileworkerdelegate{
+    func fileworkwritecompleted(_ sender: fileworker, filename: String, tag: Int) {
+        
+    }
+    
+    func fileworkreadcompleted(_ sender: fileworker, filename: String, tag: Int) {
+        
+    }
+    
 
     @IBOutlet weak var txtaccount: UITextField!
     @IBOutlet weak var txtpassword: UITextField!
     @IBOutlet weak var btmlogin: UIButton!
     
     var requestWorker:AsyncRequestWorker?
+    var fileworkerdelegate:fileworkerdelegate?
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +34,7 @@ class loginViewController: UIViewController, UITextFieldDelegate ,AsyncResponseD
         
         requestWorker=AsyncRequestWorker()
         
-        requestWorker?.responseDelegate=self
+        requestWorker?.responseDelegate = self
 
         // Do any additional setup after loading the view.
     }
@@ -44,6 +56,17 @@ class loginViewController: UIViewController, UITextFieldDelegate ,AsyncResponseD
         
         self.requestWorker?.getResponse(from: from, tag: 1)
         
+    }
+    
+    func readservicecategory(){
+        
+        let from = "https://score.azurewebsites.net/api/servicecategory"
+        self.requestWorker?.getResponse(from: from, tag: 2)
+    }
+    func    readstore(){
+        let from = "https://score.azurewebsites.net/api/store"
+        self.requestWorker?.getResponse(from: from, tag: 3)
+    
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -105,7 +128,65 @@ class loginViewController: UIViewController, UITextFieldDelegate ,AsyncResponseD
     
     
     func receivedResponse(_ sender: AsyncRequestWorker, responseString responsetring: String, tag: Int) {
-        print(responsetring)
+        //print(responsetring)
+        //print("\(tag):\(responsetring)")
+        switch tag{
+            
+        case 1:
+            self.readservicecategory()
+            break
+        case 2:
+            do{
+                if let dataFromString = responsetring.data(using: .utf8, allowLossyConversion: false) {
+                    
+                    let json = try JSON(data: dataFromString)
+                    
+                    for (index,subJson):(String, JSON) in json {
+                        
+                        let index : Int = subJson["index"].intValue
+                        let name : String = subJson["name"].stringValue
+                        let imagePath : String = subJson["imagePath"].stringValue
+                        print("\(index ):\(name)")
+
+                    }
+                }
+            }catch{
+                print(error)
+            }
+            
+            
+            self.readstore()
+            break
+        case 3:
+            //store
+            //print("\(tag):\(responsetring)")
+            //{"serviceIndex":0,"name":"Cafe00","location":{"address":"","latitude":0.0,"longitude":0.0},"index":0,"imagePath":""}
+            do{
+                if let dataFromString = responsetring.data(using: .utf8, allowLossyConversion: false) {
+                    
+                    let json = try JSON(data: dataFromString)
+                    
+                    for (index,subJson):(String, JSON) in json {
+                        let serviceIndex: Int = subJson["serviceIndex"].intValue
+                        let name : String = subJson["name"].stringValue
+                        let index : Int = subJson["index"].intValue
+                        let imagePath : String=subJson["imagePath"].stringValue
+                        let location : JSON = subJson["location"]
+                        let latitude : Double=location["latitude"].doubleValue
+                        let longitude : Double=location["longitude"].doubleValue
+                      
+                        print("\(index ):\(name):longitude:\(latitude)")
+                        
+                    }
+                }
+            }catch{
+                print(error)
+            }
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "movetodetailviewcontroller", sender: self)            }
+        default:
+            break
+        }
         
 //        defaults.synchronize()
 //        

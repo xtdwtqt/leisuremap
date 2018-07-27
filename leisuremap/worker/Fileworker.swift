@@ -8,8 +8,8 @@
 
 import Foundation
 protocol fileworkerdelegate {
-    func fileworkwritecompleted(_ sender:fileworker,filename:String, tag:Int)
-    func fileworkreadcompleted(_ sender:fileworker,filename:String, tag:Int)
+    func fileworkwritecompleted(_ sender:fileworker, filename: String, tag: Int)
+    func fileworkreadcompleted(_ sender:fileworker, filename: String, tag: Int)
 
 }
 class fileworker {
@@ -32,11 +32,24 @@ class fileworker {
         
         
     }
+    
     func readfromfile(filename:String,tag:Int) ->String {
         var result:String = ""
+        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first{
+            
+            let  fileURL = dir.appendingPathComponent(filename)
+            
+            do{
+                let content = try String(contentsOf: fileURL, encoding: .utf8)
+                self.fileworkerdelegate?.fileworkreadcompleted(self, filename: content , tag: tag)
+                result = content
+            }
+            catch{ print(error) }
+            
+            
+        }
         return result
     }
-    
     
 }
 

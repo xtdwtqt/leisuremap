@@ -14,6 +14,8 @@
 		AD21462921085B0E0062F00C /* noteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD21462821085B0E0062F00C /* noteViewController.swift */; };
 		AD21462B21086E3B0062F00C /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD21462A21086E3B0062F00C /* loginViewController.swift */; };
 		AD21462F21087F750062F00C /* splashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD21462E21087F750062F00C /* splashViewController.swift */; };
+		AD2F51C4210AAAA6008D2FC8 /* servicecategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2F51C3210AAAA6008D2FC8 /* servicecategory.swift */; };
+		AD2F51C6210AAB69008D2FC8 /* store.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2F51C5210AAB69008D2FC8 /* store.swift */; };
 		ADCE43102109CF2600B36143 /* Fileworker.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCE430F2109CF2600B36143 /* Fileworker.swift */; };
 		ADFA21EA2105D80400180D43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFA21E92105D80400180D43 /* AppDelegate.swift */; };
 		ADFA21EC2105D80400180D43 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFA21EB2105D80400180D43 /* ViewController.swift */; };
@@ -57,6 +59,8 @@
 		AD21462821085B0E0062F00C /* noteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = noteViewController.swift; sourceTree = "<group>"; };
 		AD21462A21086E3B0062F00C /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
 		AD21462E21087F750062F00C /* splashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = splashViewController.swift; sourceTree = "<group>"; };
+		AD2F51C3210AAAA6008D2FC8 /* servicecategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = servicecategory.swift; sourceTree = "<group>"; };
+		AD2F51C5210AAB69008D2FC8 /* store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = store.swift; sourceTree = "<group>"; };
 		ADCE430F2109CF2600B36143 /* Fileworker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fileworker.swift; sourceTree = "<group>"; };
 		ADFA21E62105D80400180D43 /* leisuremap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = leisuremap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADFA21E92105D80400180D43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +145,15 @@
 			path = noteflow;
 			sourceTree = "<group>";
 		};
+		AD2F51C2210AA9E4008D2FC8 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				AD2F51C3210AAAA6008D2FC8 /* servicecategory.swift */,
+				AD2F51C5210AAB69008D2FC8 /* store.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		ADFA21DD2105D80400180D43 = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +179,7 @@
 		ADFA21E82105D80400180D43 /* leisuremap */ = {
 			isa = PBXGroup;
 			children = (
+				AD2F51C2210AA9E4008D2FC8 /* model */,
 				ADFDCE772109614E00FD35FD /* worker */,
 				AD21461F210859E00062F00C /* noteflow */,
 				AD21461C210859420062F00C /* mapflow */,
@@ -451,8 +465,10 @@
 				AD21462921085B0E0062F00C /* noteViewController.swift in Sources */,
 				ADCE43102109CF2600B36143 /* Fileworker.swift in Sources */,
 				AD21462521085AE30062F00C /* masterViewController.swift in Sources */,
+				AD2F51C6210AAB69008D2FC8 /* store.swift in Sources */,
 				ADFA21EC2105D80400180D43 /* ViewController.swift in Sources */,
 				ADFA21EA2105D80400180D43 /* AppDelegate.swift in Sources */,
+				AD2F51C4210AAAA6008D2FC8 /* servicecategory.swift in Sources */,
 				AD21462B21086E3B0062F00C /* loginViewController.swift in Sources */,
 				AD21462F21087F750062F00C /* splashViewController.swift in Sources */,
 				ADFDCE792109617400FD35FD /* networker.swift in Sources */,
