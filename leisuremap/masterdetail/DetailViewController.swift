@@ -9,11 +9,16 @@
 import UIKit
 
 class DetailViewController: UIViewController {
+    
+    var selectedStore : store?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        title = selectedStore?.Name
     }
     
 

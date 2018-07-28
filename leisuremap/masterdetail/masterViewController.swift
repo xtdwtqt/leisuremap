@@ -11,6 +11,7 @@ import SwiftyJSON
 
 class masterViewController: UIViewController,fileworkerdelegate,UICollectionViewDelegate,UICollectionViewDataSource,UITableViewDataSource, UITableViewDelegate{
     
+    @IBOutlet weak var storeTable: UITableView!
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return displayStore.count
     }
@@ -27,10 +28,25 @@ class masterViewController: UIViewController,fileworkerdelegate,UICollectionView
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let store = displayStore[indexPath.row]
+        
+        self.selectedStore = store
+        
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "movetoDetailViewController", sender: self)            }
+        
+
+    }
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categories.count
     }
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -45,6 +61,27 @@ class masterViewController: UIViewController,fileworkerdelegate,UICollectionView
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        let category = categories[indexPath.row]
+        displayStore.removeAll()
+        for store in stores{
+            
+            let idx  : Int = category.Index - 1
+            
+            if(store.ServiceIndex == idx){
+                
+                displayStore.append(store)
+            }
+            
+            DispatchQueue.main.async {
+                self.storeTable.reloadData()
+            }
+        }
+
+        
+    }
+    
     func fileworkwritecompleted(_ sender: fileworker, filename: String, tag: Int) {
         
     }
@@ -52,6 +89,7 @@ class masterViewController: UIViewController,fileworkerdelegate,UICollectionView
     func fileworkreadcompleted(_ sender: fileworker, filename: String, tag: Int) {
         
     }
+    
     
     
     var fileWorker:fileworker?
@@ -122,14 +160,24 @@ class masterViewController: UIViewController,fileworkerdelegate,UICollectionView
     }
     
 
-    /*
+  
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        switch segue.identifier {
+        case "movetoDetailViewController":
+            
+            let viewController = segue.destination as! DetailViewController
+            viewController.selectedStore = self.selectedStore
+            
+            break
+        default:
+            break
+        }
+        
     }
-    */
+ 
 
 }
