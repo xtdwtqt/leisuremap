@@ -9,13 +9,31 @@
 import UIKit
 import SwiftyJSON
 
-class masterViewController: UIViewController,fileworkerdelegate,UICollectionViewDelegate,UICollectionViewDataSource {
+class masterViewController: UIViewController,fileworkerdelegate,UICollectionViewDelegate,UICollectionViewDataSource,UITableViewDataSource, UITableViewDelegate{
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return displayStore.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let store = displayStore[indexPath.row]
+        
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "StoreCellView", for: indexPath)as! StoreCellView
+        
+        cell.updateContent(store : store)
+        
+        return cell
+    }
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let category = categories[indexPath.row]
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ServiceViewCell", for: indexPath)as!ServiceViewCell
@@ -98,6 +116,8 @@ class masterViewController: UIViewController,fileworkerdelegate,UICollectionView
                     }catch{
                             print(error)
                      }
+        
+        displayStore = displayStore + stores
         
     }
     

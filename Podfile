@@ -8,6 +8,7 @@ target 'leisuremap' do
   # Pods for leisuremap
   pod 'SQLite.swift', '~> 0.11.5'
   pod 'SwiftyJSON', '~> 4.0'
+  pod 'SDWebImage', '~> 4.0'
   
   target 'leisuremapTests' do
     inherit! :search_paths
