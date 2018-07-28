@@ -21,15 +21,34 @@ class DetailViewController: UIViewController {
         title = selectedStore?.Name
     }
     
-
-    /*
+    @IBAction func BtnMapClicked(_ sender: Any) {
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "movetomap", sender: self)            }
+    }
+    
+    @IBAction func btnWebClicked(_ sender: Any) {
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "movetonote", sender: self)            }
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        switch segue.identifier {
+        case "movetomap":
+            
+            
+            
+            break
+            
+        case "movetonote":
+            
+            break
+        default:
+            break
+        }
     }
-    */
+ 
 
 }

@@ -19,7 +19,9 @@
 		AD2F51C8210ABECE008D2FC8 /* SQLiteWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2F51C7210ABECE008D2FC8 /* SQLiteWorker.swift */; };
 		AD2F51CB210AFFC9008D2FC8 /* ServiceViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2F51CA210AFFC9008D2FC8 /* ServiceViewCell.swift */; };
 		AD2F51CD210B0906008D2FC8 /* StoreCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2F51CC210B0906008D2FC8 /* StoreCellView.swift */; };
+		ADB797B6210C69E100515351 /* MapFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB797B5210C69E100515351 /* MapFlag.swift */; };
 		ADCE43102109CF2600B36143 /* Fileworker.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCE430F2109CF2600B36143 /* Fileworker.swift */; };
+		ADF16137210C52A80001D04A /* abc.edu.gpx in Resources */ = {isa = PBXBuildFile; fileRef = ADF16136210C52A80001D04A /* abc.edu.gpx */; };
 		ADFA21EA2105D80400180D43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFA21E92105D80400180D43 /* AppDelegate.swift */; };
 		ADFA21EC2105D80400180D43 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFA21EB2105D80400180D43 /* ViewController.swift */; };
 		ADFA21EF2105D80400180D43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADFA21ED2105D80400180D43 /* Main.storyboard */; };
@@ -67,7 +69,9 @@
 		AD2F51C7210ABECE008D2FC8 /* SQLiteWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteWorker.swift; sourceTree = "<group>"; };
 		AD2F51CA210AFFC9008D2FC8 /* ServiceViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceViewCell.swift; sourceTree = "<group>"; };
 		AD2F51CC210B0906008D2FC8 /* StoreCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCellView.swift; sourceTree = "<group>"; };
+		ADB797B5210C69E100515351 /* MapFlag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapFlag.swift; sourceTree = "<group>"; };
 		ADCE430F2109CF2600B36143 /* Fileworker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fileworker.swift; sourceTree = "<group>"; };
+		ADF16136210C52A80001D04A /* abc.edu.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = abc.edu.gpx; sourceTree = "<group>"; };
 		ADFA21E62105D80400180D43 /* leisuremap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = leisuremap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADFA21E92105D80400180D43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADFA21EB2105D80400180D43 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 		AD21461C210859420062F00C /* mapflow */ = {
 			isa = PBXGroup;
 			children = (
+				ADB797B5210C69E100515351 /* MapFlag.swift */,
 				AD21462621085AF80062F00C /* mapViewController.swift */,
 			);
 			path = mapflow;
@@ -173,6 +178,7 @@
 		ADFA21DD2105D80400180D43 = {
 			isa = PBXGroup;
 			children = (
+				ADF16136210C52A80001D04A /* abc.edu.gpx */,
 				ADFA21E82105D80400180D43 /* leisuremap */,
 				ADFA21FD2105D80800180D43 /* leisuremapTests */,
 				ADFA22082105D80800180D43 /* leisuremapUITests */,
@@ -377,6 +383,7 @@
 			files = (
 				ADFA21F42105D80800180D43 /* LaunchScreen.storyboard in Resources */,
 				ADFA21F12105D80800180D43 /* Assets.xcassets in Resources */,
+				ADF16137210C52A80001D04A /* abc.edu.gpx in Resources */,
 				ADFA21EF2105D80400180D43 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -481,6 +488,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADB797B6210C69E100515351 /* MapFlag.swift in Sources */,
 				AD21462921085B0E0062F00C /* noteViewController.swift in Sources */,
 				ADCE43102109CF2600B36143 /* Fileworker.swift in Sources */,
 				AD21462521085AE30062F00C /* masterViewController.swift in Sources */,
