@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		20EC2FF5CB2BF605691EC368 /* Pods_leisuremap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A80F2B3B76AD178A3F8E9ACC /* Pods_leisuremap.framework */; };
+		AD0FF62B210D446F0069FB9C /* webViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0FF62A210D446F0069FB9C /* webViewController.swift */; };
 		AD21462321085A860062F00C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD21462221085A860062F00C /* DetailViewController.swift */; };
 		AD21462521085AE30062F00C /* masterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD21462421085AE30062F00C /* masterViewController.swift */; };
 		AD21462721085AF80062F00C /* mapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD21462621085AF80062F00C /* mapViewController.swift */; };
@@ -58,6 +59,7 @@
 		8C0CB17E41FEB3DE92E2CCDE /* Pods-leisuremapUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-leisuremapUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-leisuremapUITests/Pods-leisuremapUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A80F2B3B76AD178A3F8E9ACC /* Pods_leisuremap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_leisuremap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABD796669FBE7CBECCAEBA8A /* Pods-leisuremapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-leisuremapTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-leisuremapTests/Pods-leisuremapTests.release.xcconfig"; sourceTree = "<group>"; };
+		AD0FF62A210D446F0069FB9C /* webViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = webViewController.swift; sourceTree = "<group>"; };
 		AD21462221085A860062F00C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		AD21462421085AE30062F00C /* masterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = masterViewController.swift; sourceTree = "<group>"; };
 		AD21462621085AF80062F00C /* mapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			children = (
 				ADB797B5210C69E100515351 /* MapFlag.swift */,
 				AD21462621085AF80062F00C /* mapViewController.swift */,
+				AD0FF62A210D446F0069FB9C /* webViewController.swift */,
 			);
 			path = mapflow;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 				AD21462921085B0E0062F00C /* noteViewController.swift in Sources */,
 				ADCE43102109CF2600B36143 /* Fileworker.swift in Sources */,
 				AD21462521085AE30062F00C /* masterViewController.swift in Sources */,
+				AD0FF62B210D446F0069FB9C /* webViewController.swift in Sources */,
 				AD2F51C6210AAB69008D2FC8 /* store.swift in Sources */,
 				ADFA21EC2105D80400180D43 /* ViewController.swift in Sources */,
 				AD2F51CD210B0906008D2FC8 /* StoreCellView.swift in Sources */,

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14306.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14306.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="25Y-Ix-cCG">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -330,11 +330,46 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="mapView" destination="jNH-zX-hvv" id="WwY-r7-FX4"/>
+                        <segue destination="25Y-Ix-cCG" kind="show" identifier="movetowebviewcontroller" id="bnL-y0-zmX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ddb-KM-xO3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3672.8000000000002" y="-448.42578710644682"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="Ymm-SP-0nz">
+            <objects>
+                <viewController id="25Y-Ix-cCG" customClass="webViewController" customModule="leisuremap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="blg-Ic-Pge">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mGB-Bv-ihi">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mGB-Bv-ihi" firstAttribute="leading" secondItem="nY1-yd-FRe" secondAttribute="leading" id="0yg-Q2-ngt"/>
+                            <constraint firstItem="mGB-Bv-ihi" firstAttribute="trailing" secondItem="nY1-yd-FRe" secondAttribute="trailing" id="4dP-Zt-Chi"/>
+                            <constraint firstItem="mGB-Bv-ihi" firstAttribute="bottom" secondItem="nY1-yd-FRe" secondAttribute="bottom" id="UlC-hb-O9y"/>
+                            <constraint firstItem="mGB-Bv-ihi" firstAttribute="top" secondItem="nY1-yd-FRe" secondAttribute="top" id="aMz-7m-hBp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nY1-yd-FRe"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="mGB-Bv-ihi" id="6cN-zc-abB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H8Y-PP-w9h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4600.8000000000002" y="-448.42578710644682"/>
         </scene>
         <!--Note View Controller-->
         <scene sceneID="BQf-dz-slW">
