@@ -378,7 +378,24 @@
                     <view key="view" contentMode="scaleToFill" id="mPW-eM-3Pq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Wy-GU-vMi">
+                                <rect key="frame" x="16" y="72" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="e2k-f4-bbo"/>
+                                </constraints>
+                                <state key="normal" title="Photo"/>
+                                <connections>
+                                    <action selector="btnPhotoClicked:" destination="FsF-OG-o2m" eventType="touchUpInside" id="b6w-j3-iGZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9Wy-GU-vMi" firstAttribute="leading" secondItem="ATi-hq-c5E" secondAttribute="leading" constant="16" id="Hql-2U-3Ps"/>
+                            <constraint firstItem="9Wy-GU-vMi" firstAttribute="top" secondItem="ATi-hq-c5E" secondAttribute="top" constant="72" id="RpX-tu-8yZ"/>
+                            <constraint firstItem="ATi-hq-c5E" firstAttribute="trailing" secondItem="9Wy-GU-vMi" secondAttribute="trailing" constant="16" id="bHj-kz-cBc"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ATi-hq-c5E"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
